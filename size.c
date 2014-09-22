@@ -1,3 +1,5 @@
+// How do you find size of integer without using sizeof operator.
+
 #include<stdio.h>
 
 void main()
