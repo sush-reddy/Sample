@@ -1,4 +1,4 @@
 Sample
 ======
 
-Sample C codes that I have tried out.
+Most common C problems solved. 
