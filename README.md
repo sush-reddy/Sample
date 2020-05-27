@@ -1,4 +1,4 @@
 Sample
 ======
 
-Most common C problems solved. 
+Most common practice programs in C. 
