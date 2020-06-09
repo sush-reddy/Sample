@@ -86,10 +86,36 @@ int findLastOccurrence(int A[], int n, int num)
 
 int Num_occurrences(int A[], int n, int num)
 {
+
+/*  Approach 1
+
     int first = findfirstOccurrence(A, n, num);
     int last = findLastOccurrence(A, n, num);
 
     int count = last - first +1;
+*/
+    /* Approach 2 */
+
+    int i, index;
+    int count = -1;
+
+    index = binarySearch(A, n, num);
+    if (index != -1)
+        count = 1;
+
+    i = index-1;
+    while(i >= 0 && A[i] == num)
+    {
+        count++;
+        i--;
+    }
+
+    i = index+1;
+    while(i < n && A[i] == num)
+    {
+        i++;
+        count++;
+    }
 
     return count;
 }
@@ -100,10 +126,10 @@ int main()
     int Arr2[] = {2, 3, 4, 4, 4, 5, 6};
     int x;
 
-    x = binarySearch(Arr, 7, 3);
-    printf ("\nNum 3 is at position %d in Array", x);
-    x = binarySearch_recursive(Arr, 0, 7, 3);
-    printf ("\nNum 3 is at position %d in Array", x);
+    x = binarySearch(Arr, 7, 5);
+    printf ("\nNum 5 is at position %d in Array", x);
+    x = binarySearch_recursive(Arr, 0, 7, 5);
+    printf ("\nNum 5 is at position %d in Array", x);
 
     x = findfirstOccurrence(Arr2, 7, 4);
     printf("\nFirst occurrance of 4 in Arr2 is at %d", x);
