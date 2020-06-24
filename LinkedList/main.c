@@ -8,21 +8,21 @@ int main()
     int i, num, data;
     struct Node* head = NULL;
 
-//    printf("\n Enter the number of elements you wish to have in linked list\n");
-//    scanf("%d", &num);
+    printf("\n Enter the number of elements you wish to have in linked list\n");
+    scanf("%d", &num);
 
-//    printf("\nEnter the elements\n");
-/*    for(i=0; i<num; i++)
+    printf("\nEnter the elements\n");
+    for(i=0; i<num; i++)
     {
         scanf("%d", &data);
-//        Insert(&head, data);
+        Insert(&head, data);
 //        InsertDLL(&head, data);
-        Insert_Cir_LL(&head, data);
+//        Insert_Cir_LL(&head, data);
     }
     printf("\n List = ");
-*/
 
-//    PrintList(head);
+
+    PrintList(head);
 //    PrintListDLL(head);
  //   Print_circular_LL(head);
 //    printf("\n Len of list is %d", Length(head));
@@ -86,6 +86,10 @@ int main()
 //    PrintList(head);
 
 //    int x =  getNth_node_from_end(head, 6);
+    printNthFromLast_2(head, 3);
+    printf("\n Deleting the element. New List = ");
+    deleteNthNodeFromLast(&head, 3);
+    PrintList(head);
 //    printf("6th node from end is %d", x);
 
 /*    printf("\n Inserting 500 at 4");
@@ -95,8 +99,9 @@ int main()
 */
 
 
+/*    Insert(&head, 5);
     Insert(&head, 5);
-    Insert(&head, 5);
+    Insert(&head, 20);
     Insert(&head, 20);
     Insert(&head, 20);
 
@@ -104,6 +109,6 @@ int main()
     remove_duplicates(head);
     printf("\n list after removing duplicates: ");
     PrintList(head);
-
+*/
     return 0;
 }

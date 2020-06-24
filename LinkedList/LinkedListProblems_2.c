@@ -23,6 +23,73 @@ int getNth_node_from_end(struct Node* head, int n)
     return current->data;
 }
 
+// Recursive approach
+void printNthFromLast(struct Node* head, int n)
+{
+    static int i = 0;
+    if (head == NULL)
+        return;
+    printNthFromLast(head->next, n);
+    if (++i == n)
+        printf("%d", head->data);
+}
+
+// Two pointers approach. Without knowing the length of the list.
+void printNthFromLast_2(struct Node* head, int n)
+{
+    struct Node* first = head;
+    struct Node* second = head;
+    int i;
+
+    for(i = 0; i<n; i++)
+        first = first->next;
+
+    while(first != NULL)
+    {
+        first = first->next;
+        second = second->next;
+    }
+
+    printf("element = %d", second->data);
+}
+
+
+void deleteNthNodeFromLast(struct Node **headref, int n)
+{
+    struct Node* first = *headref;
+    struct Node* second = *headref;
+    struct Node* temp;
+    int i;
+
+
+    for(i = 0; i<n; i++) {
+        if (!first) {
+            printf("\n Invalid position");
+            return;
+        }
+        first = first->next;
+    }
+
+    if (!first)
+    {
+        // Node to be deleted is head.
+        temp = *headref;
+        *headref = (*headref)->next;
+        free(temp);
+        return;
+    }
+
+    while(first->next != NULL)
+    {
+        first = first->next;
+        second = second->next;
+    }
+
+    temp = second->next;    // Node to be deleted is next of second ptr.
+    second->next = second->next->next;
+
+    free(temp);
+}
 
 /* Write a program to find the node at which the intersection of two singly linked lists begins. */
 // Returns the node at which intersection begins.
@@ -160,6 +227,7 @@ void remove_duplicates(struct Node* head)
             ptr->next = ptr->next->next;
             free(tmp);
         }
-        ptr = ptr->next;
+        else
+            ptr = ptr->next;
     }
 }

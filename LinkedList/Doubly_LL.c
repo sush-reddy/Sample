@@ -79,7 +79,7 @@ struct DLLNode * Reverse_DLL(struct DLLNode* head)
 struct DLLNode* sortedInsert_DLL(struct DLLNode* head, int data) {
 
     struct DLLNode* current = head;
-    struct DLLNode* newNode = new struct DLLNode;
+    struct DLLNode* newNode = malloc(sizeof(struct DLLNode));
 
     newNode->data = data;
     newNode->next = NULL;

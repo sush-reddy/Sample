@@ -101,6 +101,28 @@ struct Node * reverse_list(struct Node *head)
     return prevNode;
 }
 
+struct Node* deleteNthNode(struct Node* head, int position) {
+
+    int i=0;
+    struct Node* temp = head;
+
+    if (position == 0)
+    {
+        head = head->next;
+        free(temp);
+        return head;
+    }
+    while(temp && i < position-1) {
+        temp = temp->next;
+        i++;
+    }
+
+    struct Node* foundNode = temp->next;
+    temp->next = temp->next->next;
+    free(foundNode);
+    return head;
+}
+
 /*
 int main()
 {
